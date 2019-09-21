@@ -1,5 +1,5 @@
 //
-//  DispatchQueue+Custom.swift
+//  DispatchQueue+WC.swift
 //  WCFoundation
 //
 //  Created by Frank on 2019/9/14.

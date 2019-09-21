@@ -1,5 +1,5 @@
 //
-//  ViewController+Runtime.swift
+//  ViewController+WC.swift
 //  WCFoundation
 //
 //  Created by Frank on 2019/9/14.
@@ -28,7 +28,7 @@ extension UIViewController {
     }
 }
 
-// MARK: - Method swizzling
+// MARK: - Method Swizzling
 
 extension UIViewController {
 
@@ -43,12 +43,7 @@ extension UIViewController {
             let originalSelector = #selector(UIViewController.viewDidLoad)
             // Your custom method
             let swizzledSelector = Selector(("mySwizzledViewDidLoad"))
-            guard let originalMethod = class_getInstanceMethod(self, originalSelector),
-                let swizzledMethod = class_getInstanceMethod(self, swizzledSelector) else {
-                    print("Cannot find your custom method")
-                    return
-            }
-            method_exchangeImplementations(originalMethod, swizzledMethod)
+            swizzleMethod(aClass: self, originalSelector: originalSelector, swizzledSelector: swizzledSelector)
         }
     }
 
